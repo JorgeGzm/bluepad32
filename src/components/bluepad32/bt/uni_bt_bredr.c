@@ -20,9 +20,9 @@
 #include "uni_config.h"
 #include "uni_log.h"
 
-// These are the only two supported platforms with BR/EDR support.
-#if !(defined(CONFIG_IDF_TARGET_ESP32) || defined(CONFIG_TARGET_POSIX) || defined(CONFIG_TARGET_PICO_W))
-#error "This file can only be compiled for ESP32, Pico W, or Posix"
+// These are the only supported platforms with BR/EDR support.
+#if !(defined(CONFIG_IDF_TARGET_ESP32) || defined(CONFIG_TARGET_POSIX) || defined(CONFIG_TARGET_PICO_W) || defined(CONFIG_TARGET_ZEPHYR))
+#error "This file can only be compiled for ESP32, Pico W, Posix, or Zephyr"
 #endif
 
 #define INQUIRY_REMOTE_NAME_TIMEOUT_MS 4500

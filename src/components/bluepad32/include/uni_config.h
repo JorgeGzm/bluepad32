@@ -7,7 +7,10 @@
 
 #include "sdkconfig.h"
 
-#if defined(CONFIG_TARGET_POSIX) || defined(CONFIG_TARGET_PICO_W) || defined(CONFIG_IDF_TARGET_ESP32)
+#if defined(CONFIG_TARGET_ZEPHYR)
+// Zephyr on ESP32: BR/EDR only (for DualShock 4), no BLE
+#define UNI_ENABLE_BREDR 1
+#elif defined(CONFIG_TARGET_POSIX) || defined(CONFIG_TARGET_PICO_W) || defined(CONFIG_IDF_TARGET_ESP32)
 // Pico W, original ESP32 and Posix all support both BR/EDR and BLE
 #define UNI_ENABLE_BREDR 1
 #define UNI_ENABLE_BLE 1
